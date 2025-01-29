@@ -152,3 +152,107 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* timeline experiments */
+
+.container {
+	display: flex;
+	justify-content: center; 
+	align-items: center;
+	padding: 20px;
+  }
+
+  .timeline {
+	list-style: none; 
+	margin: 0;
+	padding: -5px;
+	position: relative;
+  }
+  
+  .timeline::before {
+	content: "";
+	position: absolute;
+	left: 30px; 
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background-color: #ccc; /* actual line color */
+	z-index: -1; /* line goes behind content */
+  }
+  
+  .timeline li {
+	position: relative;
+	margin-bottom: 50px;
+	padding-left: 80px; 
+  }
+  
+  .timeline li:last-child {
+	margin-bottom: 0; 
+  }
+  
+  .timeline li:last-child::after {
+	content: "";
+	position: absolute;
+	left: 30px; 
+	top: 100%; 
+	width: 2px; 
+	height: 0; 
+	background-color: transparent; 
+  }
+
+
+  .timeline-icon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 15%; 
+	object-fit: cover; /* logo scales */
+	background-color: #fff; 
+	border: 2px solid #ccc; 
+  }
+
+
+
+  /* make timeline responsive */
+
+  @media (max-width: 768px) {
+	.timeline-icon {
+	  width: 40px;
+	  height: 40px;
+	}
+  
+	.timeline li {
+	  padding-left: 60px; /* padding for smaller screens */
+	}
+  }
+  
+  
+  .img-container {
+	display: flex; 
+	align-items: center; /* vertical align */
+	gap: 50px; 
+	margin: 0; 
+  }
+  
+  .img-container img {
+	max-width: 100%; 
+	height: auto; 
+	width: auto; 
+	max-height: 200px; 
+  }
+  
+  @media (max-width: 600px) {
+	.img-container {
+	  flex-direction: column; /* stack on small screens */
+	  gap: 8px;
+	}
+  
+	.img-container img {
+	  max-height: 150px; 
+	}
+  }
+  
+  
+  
